@@ -3,13 +3,20 @@ import Button from "./button";
 import NavBarItem from "./nav-item";
 import CustomModal from "./custom-modal";
 
-function NavBarComponent() {
+function NavBarComponent({ receiveSearchText }) {
   const [searchInputValue, setSearchInputValue] = useState("");
   const [logoutValue, setLogoutValue] = useState(false);
   const [showCustomModal, setShowCustomModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalContent, setModalContent] = useState("");
   const [modalIcon, setModalIcon] = useState("");
+
+  const handleChangedSearchText = (e) => {
+    const searchText = e.target.value;
+    setSearchInputValue(searchText);
+    receiveSearchText(searchText);
+    console.log(searchInputValue);
+  };
 
   const handleAddClick = () => {
     setShowCustomModal(true);
@@ -36,10 +43,7 @@ function NavBarComponent() {
         type="input"
         value={searchInputValue}
         icon="fa-solid fa-magnifying-glass"
-        onChange={(e) => {
-          setSearchInputValue(e.target.value);
-          console.log(searchInputValue);
-        }}
+        onChange={handleChangedSearchText}
       />
 
       <div className="flex ml-auto gap-4">

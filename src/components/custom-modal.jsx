@@ -9,6 +9,7 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 function CustomModal({ isOpen, onModalStateChange, title, textContent, icon }) {
   const [open, setOpen] = useState(isOpen);
+
   const handleClick = () => {
     setOpen(false);
     // pernaei data apo to child ston parent auti i callback edo !

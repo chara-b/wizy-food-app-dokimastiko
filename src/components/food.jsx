@@ -1,7 +1,6 @@
 import Button from "./button";
 
 function Food(props) {
-  console.log("../assets/" + props.foodData.imgName);
   return (
     <li className="flex items-center gap-4 rounded-lg bg-blue-100 p-6 shadow-md outline outline-black/5">
       <img

@@ -1,4 +1,8 @@
 function Footer() {
-  return <div></div>;
+  return (
+    <div className="flex justify-end p-10 mt-5 bg-blue-200">
+      <div>made by me 2026</div>
+    </div>
+  );
 }
 export default Footer;

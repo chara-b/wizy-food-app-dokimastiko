@@ -18,10 +18,15 @@ import FoodList from "./components/food-list";
 import Footer from "./components/footer";
 
 function App() {
+  const [searchText, setSearchText] = useState("");
+
+  const search = (text) => {
+    setSearchText(text);
+  };
   return (
     <div className="flex flex-col w-full">
-      <NavBarComponent className="w-full" />
-      <FoodList className="w-full" data={data} />
+      <NavBarComponent className="w-full" receiveSearchText={search} />
+      <FoodList className="w-full" data={data} searchText={searchText} />
       <Footer className="w-full" />
     </div>
   );
