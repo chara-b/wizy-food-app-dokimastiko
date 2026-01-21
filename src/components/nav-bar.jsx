@@ -10,6 +10,8 @@ function NavBarComponent({ receiveSearchText }) {
   const [modalTitle, setModalTitle] = useState("");
   const [modalContent, setModalContent] = useState("");
   const [modalIcon, setModalIcon] = useState("");
+  const [modalActionBtnLeft, setModalActionBtnLeft] = useState("");
+  const [modalActionBtnRight, setModalActionBtnRight] = useState("");
 
   const handleChangedSearchText = (e) => {
     const searchText = e.target.value;
@@ -23,12 +25,18 @@ function NavBarComponent({ receiveSearchText }) {
     setModalTitle("Add new food");
     setModalContent("here goes the form to add new food...");
     setModalIcon("fa-solid fa-utensils");
+    setModalActionBtnLeft("Cancel");
+    setModalActionBtnRight("Add");
   };
   const handleCartClick = () => {
     setShowCustomModal(true);
-    setModalTitle("This is your cart");
-    setModalContent("here goes the form to show you what's in your cart...");
-    setModalIcon("fa-solid fa-cart-shopping");
+    setModalTitle("This is your deleted foods folder");
+    setModalContent(
+      "here goes the form to show you what's in your deleted foods folder...",
+    );
+    setModalIcon("fa-solid fa-trash");
+    setModalActionBtnLeft("Cancel");
+    setModalActionBtnRight("Restore");
   };
 
   const receiveModalState = (value) => {
@@ -60,12 +68,14 @@ function NavBarComponent({ receiveSearchText }) {
             title={modalTitle}
             textContent={modalContent}
             icon={modalIcon}
+            actionBtnLeft={modalActionBtnLeft}
+            actionBtnRight={modalActionBtnRight}
           />
         )}
         <Button
           styles="bg-blue-600 text-white px-5 py-3 rounded-lg text-base hover:bg-blue-800"
-          text="Cart"
-          icon="fa-solid fa-cart-shopping"
+          text="Deleted"
+          icon="fa-solid fa-trash"
           onClick={handleCartClick}
         />
         <Button
