@@ -69,7 +69,11 @@ function FoodList({
       })}
     </ul>
   ) : (
-    "No foods found !"
+    <ul
+      className={`grid grid-cols-${colsCount} gap-4 ml-5 mr-5 h-screen overflow-auto`}
+    >
+      <li> "No foods found !"</li>
+    </ul>
   );
 }
 
