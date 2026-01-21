@@ -24,8 +24,9 @@ function Food(props) {
           </ul>
         </div>
         <p className="font-bold">
-          {props.foodData.price + props.foodData.currency}
+          Price: {props.foodData.price + props.foodData.currency}
         </p>
+        <span>Quantity: {props.foodData.quantity}</span>
       </div>
       <Button
         icon="fa-solid fa-cart-plus"
