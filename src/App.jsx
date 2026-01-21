@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 import pizza from "./assets/pizza.png";
@@ -19,14 +19,32 @@ import Footer from "./components/footer";
 
 function App() {
   const [searchText, setSearchText] = useState("");
+  const [deletedFoods, setDeletedFoods] = useState([]);
 
   const search = (text) => {
     setSearchText(text);
   };
+
+  const handleDeletedFoodsList = (deletedFoodsList) => {
+    setDeletedFoods(deletedFoodsList);
+  };
+
   return (
     <div className="flex flex-col w-full">
-      <NavBarComponent className="w-full" receiveSearchText={search} />
-      <FoodList className="w-full" data={data} searchText={searchText} />
+      <NavBarComponent
+        className="w-full"
+        receiveSearchText={search}
+        deletedFoods={() => deletedFoods}
+      />
+      <FoodList
+        className="w-full h-100 overflow-auto"
+        data={data}
+        searchText={searchText}
+        receiveDeletedFoodsList={handleDeletedFoodsList}
+        icon="fa-solid fa-trash"
+        btnType="delete"
+        colsCount="3"
+      />
       <Footer className="w-full" />
     </div>
   );

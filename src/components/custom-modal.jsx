@@ -6,12 +6,13 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import FoodList from "./food-list";
 
 function CustomModal({
   isOpen,
   onModalStateChange,
   title,
-  textContent,
+  content,
   icon,
   actionBtnLeft,
   actionBtnRight,
@@ -49,7 +50,17 @@ function CustomModal({
                       {title}
                     </DialogTitle>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">{textContent}</p>
+                      {Array.isArray(content) ? (
+                        <FoodList
+                          className="w-full"
+                          data={content}
+                          icon="fa-solid fa-arrow-rotate-right"
+                          btnType="restore"
+                          colsCount="1"
+                        />
+                      ) : (
+                        <p className="text-sm text-gray-500">{content}</p>
+                      )}
                     </div>
                   </div>
                 </div>
