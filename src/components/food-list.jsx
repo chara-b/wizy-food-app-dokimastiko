@@ -47,7 +47,7 @@ function FoodList({
       receiveDeletedFoodsList(deletedFoods);
       console.log(deletedFoods);
     }
-  }, [searchText]);
+  }, [searchText, deletedFoods]);
 
   const foodsNum = filteredFoods.length;
 
