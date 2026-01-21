@@ -9,17 +9,16 @@ function FoodList({
   btnType,
   colsCount,
 }) {
-  const [foods, setFoods] = useState(data || []);
-  const [filteredFoods, setFilteredFoods] = useState([]);
+  const [availableFoods, setAvailableFoods] = useState(data || []);
+  const [filteredFoods, setFilteredFoods] = useState(data || []);
   const [deletedFoods, setDeletedFoods] = useState([]);
 
   const handleDeletedFood = (deletedFood) => {
     console.log("deletedFood: ", deletedFood);
     const results = filteredFoods.filter((food) => food.id !== deletedFood.id);
     setFilteredFoods(results);
+    setAvailableFoods(results);
     setDeletedFoods((prevDeletedFoods) => [...prevDeletedFoods, deletedFood]);
-    receiveDeletedFoodsList(() => deletedFoods);
-    console.log(deletedFoods);
   };
 
   const handleRestoredFood = (restoredFood) => {
@@ -31,16 +30,23 @@ function FoodList({
   };
 
   useEffect(() => {
+    // for search keyword
     if (!searchText?.trim()) {
-      setFilteredFoods(foods);
-      return;
+      setFilteredFoods(availableFoods);
+    }
+    if (searchText?.trim()) {
+      const lowCaseSearchText = searchText.toLowerCase();
+      const results = availableFoods.filter((food) =>
+        food.title.toLowerCase().includes(lowCaseSearchText),
+      );
+      setFilteredFoods(results);
     }
 
-    const lowCaseSearchText = searchText.toLowerCase();
-    const results = foods.filter((food) =>
-      food.title.toLowerCase().includes(lowCaseSearchText),
-    );
-    setFilteredFoods(results);
+    // for sending back to the App the real deletedFoods list
+    if (typeof receiveDeletedFoodsList === "function") {
+      receiveDeletedFoodsList(deletedFoods);
+      console.log(deletedFoods);
+    }
   }, [searchText]);
 
   const foodsNum = filteredFoods.length;
