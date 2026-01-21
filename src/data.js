@@ -5,7 +5,7 @@ export const data = [
     ingredients: ["ντομάτα", "γκούντα", "γαλοπούλα", "μανητάρια", "πιπεριά"],
     price: 10,
     currency: "€",
-    imgPath: "./assets/pizza.png",
+    imgName: "pizza.png",
     quantity: 10,
   },
   {
@@ -14,7 +14,7 @@ export const data = [
     ingredients: ["ντομάτα", "χοιρινό μπιφτέκι", "σος", "μαρούλι", "γκούντα"],
     price: 7,
     currency: "€",
-    imgPath: "./assets/burger.png",
+    imgName: "burger.png",
     quantity: 10,
   },
   {
@@ -32,7 +32,7 @@ export const data = [
     ],
     price: 4,
     currency: "€",
-    imgPath: "./assets/sandwitch.png",
+    imgName: "sandwich.png",
     quantity: 10,
   },
   {
@@ -49,7 +49,7 @@ export const data = [
     ],
     price: 3,
     currency: "€",
-    imgPath: "./assets/salad.png",
+    imgName: "salad.png",
     quantity: 10,
   },
   {
@@ -58,7 +58,7 @@ export const data = [
     ingredients: ["γκούντα", "καπνιστή μπριζόλα", "φιλαδέλφεια"],
     price: 2.5,
     currency: "€",
-    imgPath: "./assets/toast.png",
+    imgName: "toast.png",
     quantity: 10,
   },
   {
@@ -67,7 +67,7 @@ export const data = [
     ingredients: [],
     price: 1,
     currency: "€",
-    imgPath: "./assets/coca-cola.png",
+    imgName: "cocacola.png",
     quantity: 10,
   },
   {
@@ -76,7 +76,7 @@ export const data = [
     ingredients: [],
     price: 1,
     currency: "€",
-    imgPath: "./assets/juice.png",
+    imgName: "juice.png",
     quantity: 10,
   },
   {
@@ -85,7 +85,7 @@ export const data = [
     ingredients: [],
     price: 0.5,
     currency: "€",
-    imgPath: "./assets/water.png",
+    imgName: "water.png",
     quantity: 10,
   },
   {
@@ -94,7 +94,7 @@ export const data = [
     ingredients: [],
     price: 2.5,
     currency: "€",
-    imgPath: "./assets/bougatsa.png",
+    imgName: "mpougatsa.png",
     quantity: 10,
   },
   {
@@ -103,7 +103,7 @@ export const data = [
     ingredients: [],
     price: 0.5,
     currency: "€",
-    imgPath: "./assets/koulouri.png",
+    imgName: "koulouri.png",
     quantity: 10,
   },
 ];

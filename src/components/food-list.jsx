@@ -7,9 +7,9 @@ function FoodList(props) {
   const foodsNum = foods.length;
   return (
     foodsNum && (
-      <ul className="w-full">
+      <ul className="grid grid-cols-3 gap-4 mt-5 ml-5 mr-5">
         {foods.map((food) => {
-          <Food foodData={food} key={food.id} />;
+          return <Food foodData={food} key={food.id} />;
         })}
       </ul>
     )

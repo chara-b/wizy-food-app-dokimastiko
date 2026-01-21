@@ -34,6 +34,7 @@ function NavBarComponent() {
         styles="w-100 px-4 py-2 border bg-white rounded-lg focus:ring-2 focus:ring-black focus:border-black"
         placeholder="Search..."
         type="input"
+        value={searchInputValue}
         icon="fa-solid fa-magnifying-glass"
         onChange={(e) => {
           setSearchInputValue(e.target.value);
