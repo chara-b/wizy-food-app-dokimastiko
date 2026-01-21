@@ -30,14 +30,14 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full h-screen">
       <NavBarComponent
         className="w-full"
         receiveSearchText={search}
         deletedFoods={() => deletedFoods}
       />
       <FoodList
-        className="w-full h-100 overflow-auto"
+        className="w-full"
         data={data}
         searchText={searchText}
         receiveDeletedFoodsList={handleDeletedFoodsList}

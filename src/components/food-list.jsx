@@ -46,7 +46,9 @@ function FoodList({
   const foodsNum = filteredFoods.length;
 
   return foodsNum ? (
-    <ul className={`grid grid-cols-${colsCount} gap-4 mt-5 ml-5 mr-5`}>
+    <ul
+      className={`grid grid-cols-${colsCount} gap-4 mt-5 ml-5 mr-5 h-screen overflow-auto`}
+    >
       {filteredFoods.map((food) => {
         return (
           <Food
