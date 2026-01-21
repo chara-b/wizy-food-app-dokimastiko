@@ -56,6 +56,7 @@ function Food({ receiveDeletedFood, receiveRestoredFood, ...props }) {
         icon={props.btnIcon}
         styles="px-3 py-1.5 text-sm font-medium rounded-md bg-blue-500 hover:bg-blue-600 text-white transition-colors"
         onClick={handleFoodCardBtnClick}
+        disabled={props.disabledBtn}
       />
     </li>
   );

@@ -1,6 +1,6 @@
-function Button({ styles, text, icon, onClick }) {
+function Button({ styles, text, icon, onClick, disabled }) {
   return (
-    <button className={styles} onClick={onClick}>
+    <button className={styles} onClick={onClick} disabled={disabled}>
       {text && text + " "}
       <i className={icon}></i>
     </button>

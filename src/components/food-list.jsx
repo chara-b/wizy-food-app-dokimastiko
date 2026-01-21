@@ -7,6 +7,7 @@ function FoodList({
   receiveDeletedFoodsList,
   icon,
   btnType,
+  disabledBtn,
   colsCount,
 }) {
   const [availableFoods, setAvailableFoods] = useState(data || []);
@@ -64,6 +65,7 @@ function FoodList({
             receiveRestoredFood={handleRestoredFood}
             btnIcon={icon}
             btnType={btnType}
+            disabledBtn={btnType === "restore" ? true : false}
           />
         );
       })}

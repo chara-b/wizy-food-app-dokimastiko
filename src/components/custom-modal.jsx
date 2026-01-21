@@ -57,6 +57,7 @@ function CustomModal({
                           icon="fa-solid fa-arrow-rotate-right"
                           btnType="restore"
                           colsCount="1"
+                          disabledBtn={true}
                         />
                       ) : (
                         <p className="text-sm text-gray-500">{content}</p>
