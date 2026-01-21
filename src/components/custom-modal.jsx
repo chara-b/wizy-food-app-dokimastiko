@@ -7,7 +7,7 @@ import {
 } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
-function CustomModal({ isOpen, onModalStateChange }) {
+function CustomModal({ isOpen, onModalStateChange, title, textContent, icon }) {
   const [open, setOpen] = useState(isOpen);
   const handleClick = () => {
     setOpen(false);
@@ -30,19 +30,17 @@ function CustomModal({ isOpen, onModalStateChange }) {
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
                   <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-                    <i className="fa-solid fa-utensils"></i>
+                    <i className={icon}></i>
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <DialogTitle
                       as="h3"
                       className="text-base font-semibold text-gray-900"
                     >
-                      Add new Food
+                      {title}
                     </DialogTitle>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        here goes the form..
-                      </p>
+                      <p className="text-sm text-gray-500">{textContent}</p>
                     </div>
                   </div>
                 </div>

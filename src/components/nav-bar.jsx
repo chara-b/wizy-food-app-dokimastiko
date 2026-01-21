@@ -7,9 +7,21 @@ function NavBarComponent() {
   const [searchInputValue, setSearchInputValue] = useState("");
   const [logoutValue, setLogoutValue] = useState(false);
   const [showCustomModal, setShowCustomModal] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalContent, setModalContent] = useState("");
+  const [modalIcon, setModalIcon] = useState("");
 
-  const handleClick = () => {
+  const handleAddClick = () => {
     setShowCustomModal(true);
+    setModalTitle("Add new food");
+    setModalContent("here goes the form to add new food...");
+    setModalIcon("fa-solid fa-utensils");
+  };
+  const handleCartClick = () => {
+    setShowCustomModal(true);
+    setModalTitle("This is your cart");
+    setModalContent("here goes the form to show you what's in your cart...");
+    setModalIcon("fa-solid fa-cart-shopping");
   };
 
   const receiveModalState = (value) => {
@@ -17,9 +29,9 @@ function NavBarComponent() {
   };
 
   return (
-    <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow-md outline outline-black/5">
+    <div className="flex items-center gap-4 rounded-lg bg-blue-200 p-6 shadow-md outline outline-black/5">
       <NavBarItem
-        styles="w-100 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-black focus:border-black"
+        styles="w-100 px-4 py-2 border bg-white rounded-lg focus:ring-2 focus:ring-black focus:border-black"
         placeholder="Search..."
         type="input"
         icon="fa-solid fa-magnifying-glass"
@@ -34,15 +46,22 @@ function NavBarComponent() {
           styles="bg-blue-600 text-white px-5 py-3 rounded-lg text-base hover:bg-blue-800"
           text="Add"
           icon="fa-solid fa-circle-plus"
-          onClick={handleClick}
+          onClick={handleAddClick}
         />
         {showCustomModal && (
-          <CustomModal isOpen={true} onModalStateChange={receiveModalState} />
+          <CustomModal
+            isOpen={true}
+            onModalStateChange={receiveModalState}
+            title={modalTitle}
+            textContent={modalContent}
+            icon={modalIcon}
+          />
         )}
         <Button
           styles="bg-blue-600 text-white px-5 py-3 rounded-lg text-base hover:bg-blue-800"
           text="Cart"
           icon="fa-solid fa-cart-shopping"
+          onClick={handleCartClick}
         />
         <Button
           styles="bg-blue-600 text-white px-5 py-3 rounded-lg text-base hover:bg-blue-800"
