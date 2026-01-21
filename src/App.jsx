@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex flex-col gap-4 w-full h-screen">
       <NavBarComponent
         className="w-full"
         receiveSearchText={search}
